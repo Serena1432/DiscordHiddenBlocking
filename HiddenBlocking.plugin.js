@@ -1,6 +1,6 @@
 /**
 	* @name HiddenBlocking
-	* @version 1.0
+	* @version 1.1
 	* @description Hide messages sent from anyone that you hate without being noticed.
 	* @author Meir
 */
@@ -12,7 +12,7 @@ module.exports = class HiddenBlocking {
 	
 	getName() { return "HiddenBlocking"; }
 	getDescription() { return "Hide messages sent from anyone that you hate without being noticed."; }
-	getVersion() { return "1.0.0"; }
+	getVersion() { return "1.1.0"; }
 	getAuthor() { return "Meir"; }
 	
 	start() {
@@ -29,7 +29,8 @@ module.exports = class HiddenBlocking {
 			for (var i = 0; i < messages.length; i++) {
 				var message = messages[i], avatar = message.getElementsByClassName("avatar-1BDn8e");
 				if (avatar.length) {
-					if (block[avatar[0].src.substr(avatar[0].src.indexOf("/avatars/") + 9, 18)]) {
+					var src = !avatar[0].src.includes("guilds") ? avatar[0].src.substr(avatar[0].src.indexOf("/avatars/") + 9, 18) : avatar[0].src.substr(avatar[0].src.indexOf("/users/") + 7, 18);
+					if (block[src]) {
 						message.style.display = "none";
 						startBlocking = true;
 					}
@@ -41,12 +42,11 @@ module.exports = class HiddenBlocking {
 	}
 	
 	stop() {
-		PluginUtilities.showToast(this.getName() + " " + this.getVersion() + " has stopped.");
+		
 	};
 
 	// Initialize
 	initialize() {
 		this.initialized = true;
-		PluginUtilities.showToast(this.getName() + " " + this.getVersion() + " has started.");
 	}
 }

@@ -12,7 +12,8 @@ function hiddenBlock() {
 	for (var i = 0; i < messages.length; i++) {
 		var message = messages[i], avatar = message.getElementsByClassName("avatar-1BDn8e");
 		if (avatar.length) {
-			if (block[avatar[0].src.substr(avatar[0].src.indexOf("/avatars/") + 9, 18)]) {
+			var src = !avatar[0].src.includes("guilds") ? avatar[0].src.substr(avatar[0].src.indexOf("/avatars/") + 9, 18) : avatar[0].src.substr(avatar[0].src.indexOf("/users/") + 7, 18);
+			if (block[src]) {
 				message.style.display = "none";
 				startBlocking = true;
 			}
