@@ -30,5 +30,7 @@ You need to do this each time you start or refresh Discord.
 ---------
 
 Plugins made by Meir#0011.
+
 Discord and the Discord logo are trademarks from Discord, Inc.
+
 I don't own anything, and I'm not affiliated with Discord.
