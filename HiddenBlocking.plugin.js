@@ -1,6 +1,6 @@
 /**
 	* @name HiddenBlocking
-	* @version 1.1
+	* @version 1.1.1
 	* @description Hide messages sent from anyone that you hate without being noticed.
 	* @author Meir
 */
@@ -12,7 +12,7 @@ module.exports = class HiddenBlocking {
 	
 	getName() { return "HiddenBlocking"; }
 	getDescription() { return "Hide messages sent from anyone that you hate without being noticed."; }
-	getVersion() { return "1.1.0"; }
+	getVersion() { return "1.1.1"; }
 	getAuthor() { return "Meir"; }
 	
 	start() {
